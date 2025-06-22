@@ -1,0 +1,99 @@
+body {
+	background-color: #fdd9d9;
+	font-family: Arial, sans-serif;
+	justify-content: center;
+	align-items: center;
+}
+
+div {
+	margin-top: 20px;
+}
+
+.container {
+	width: 400px;
+	margin-top: 100px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	align-items: center;
+	height: 360px;
+	border: 0.5px solid black;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 24px;
+	color: #343a40;
+}
+
+label {
+	margin-top: 20px;
+	font-weight: bold;
+	color: #495057;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-control {
+	border-radius: 5px;
+	height: 45px;
+	margin-top: 20px;
+}
+
+.btn-primary {
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #007bff;
+	border: none;
+	transition: background-color 0.3s ease;
+	display: block;
+	margin: auto;
+}
+
+.btn-delete:hover {
+	background-color: #F3545F;
+}
+
+.btn-delete {
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #F9747E;
+	border: none;
+	transition: background-color 0.3s ease;
+	display: block;
+	margin: auto;
+}
+
+.btn-primary:hover {
+	background-color: #0056b3;
+}
+
+.buttons {
+	display: flex;
+	gap: 20px;
+	margin-left: 30px;
+}
+
+.errorMessage {
+	font-weight: bold;
+	color: red;
+	/* background-color: #ffe6e6;
+	border: 1px solid red;
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius:10px; */
+}
+
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.home-img-div {
+	margin-left: 350px;
+}

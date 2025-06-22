@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="libtrack" default="war" basedir=".">
+
+    <property name="dist.dir" value="dist"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="src.dir" value="src/main/java"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="resources.dir" value="src/main/resources"/>
+    <property name="webapp.dir" value="src/main/webapp"/>
+    <property name="war.file" value="${dist.dir}/LibTrack.war"/>
+    <property name="cronjob.file" value="${webapp.dir}/cron-job/libtrack.sh"/>
+
+
+    <path id="project.classpath">
+        <fileset dir="${lib.dir}">
+          <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+
+    <target name="clean">
+        <delete dir="${dist.dir}" />
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${dist.dir}" />
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+    </target>
+
+    <target name="copy" depends="init">
+        <copy todir="${classes.dir}" >
+            <fileset dir="${resources.dir}">
+            </fileset> 
+        </copy>
+    </target>
+
+
+    <target name="compile" depends="copy" >
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+           <classpath refid="project.classpath" />
+            
+        </javac>
+
+    </target>
+
+    <target name="war" depends="compile" >
+        <war webxml="${webapp.dir}/WEB-INF/web.xml" destfile="${war.file}">
+            <fileset dir="${webapp.dir}" excludes="WEB-INF, META-INF" />
+            <webinf dir="${webapp.dir}/WEB-INF" excludes="web.xml"/>
+            <metainf dir="${webapp.dir}/META-INF" />
+            <classes dir="${classes.dir}"></classes>
+            <lib dir="${lib.dir}" />
+        </war>
+    </target>
+
+
+    <target name="create-tables">
+        <sql
+          classpath="${lib.dir}/mysql-connector-j-9.0.0.jar"
+          driver="com.mysql.cj.jdbc.Driver"
+          userid="root"
+          password="password"
+          url="jdbc:mysql://localhost:3306/libtrack">
+          <transaction src="sql/create-tables.sql" />
+        </sql>
+      </target>
+
+    <target name="setup-cron-job">
+        <exec executable="bash">
+            <arg value="-c"/>
+            <arg value="(crontab -l | grep -q '${basedir}/${cronjob.file}') || (crontab -l; echo '0 0 * * * ${basedir}/${cronjob.file}') | crontab -"/>
+        </exec>
+    </target>
+
+</project>

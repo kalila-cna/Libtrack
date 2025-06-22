@@ -1,0 +1,88 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+  <definition name="adminDashboard" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "DashBoard"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/admin/admin-dashboard/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/admin/admin-dashboard/body.jsp" />
+  </definition>
+  
+  <definition name="addBooks" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Add Books"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/admin/addbooks/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/admin/addbooks/body.jsp" />
+  </definition>
+  
+  <definition name="accessDenied" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Illegal Access"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/access-denied/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/access-denied/body.jsp" />
+  </definition>
+  
+  <definition name="signup" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Sign Up"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/signup/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/signup/body.jsp" />
+  </definition>
+  
+   <definition name="editBooks" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Edit Books"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/admin/editbooks/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/admin/editbooks/body.jsp" />
+  </definition>
+  
+   <definition name="viewStudents" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "View Students"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/admin/view-students/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/admin/view-students/body.jsp" />
+  </definition>
+  
+   <definition name="viewDefaulters" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "View Defaulters"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/admin/view-defaulters/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/admin/view-defaulters/body.jsp" />
+  </definition>
+  
+  <definition name="viewFines" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "View Fines"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/student/view-fines/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/student/view-fines/body.jsp" />
+  </definition>
+  
+  <definition name="availBooks" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Avail Books"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/student/availbooks/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/student/availbooks/body.jsp" />
+  </definition>
+  
+  <definition name="returnBooks" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Avail Books"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/student/returnbooks/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/student/returnbooks/body.jsp" />
+  </definition>
+  
+  <definition name="trackBooks" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Track Books"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/student/trackbooks/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/student/trackbooks/body.jsp" />
+  </definition>
+  
+   <definition name="studentDashboard" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Track Books"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/student/student-dashboard/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/student/student-dashboard/body.jsp" />
+  </definition>
+  
+  <definition name="about" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "About"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/about/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/about/body.jsp" />
+  </definition>
+  
+  <definition name="login" template="/WEB-INF/content/layouts/libtracklayout.jsp">
+    <put-attribute name = "title"  value = "Home"/>
+    <put-attribute name="headerComponents" value="/WEB-INF/content/pages/login/header.jsp" />
+    <put-attribute name="bodyComponents" value="/WEB-INF/content/pages/login/body.jsp" />
+  </definition>
+  
+</tiles-definitions>

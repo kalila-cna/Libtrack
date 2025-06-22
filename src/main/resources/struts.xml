@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="default" namespace="" extends="struts-default">
+
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<interceptors>
+			<interceptor name="sessionValidation"
+				class="com.LibTrack.interceptor.SessionValidationInterceptor" />
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="sessionValidation" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+
+		<action name="">
+			<result name="success" type="tiles">login</result>
+		</action>
+
+		<action name="about">
+			<result name="success" type="tiles">about</result>
+		</action>
+
+		<action name="home">
+			<result name="success" type="tiles">login</result>
+		</action>
+
+		<action name="logout" class="com.LibTrack.actions.LogoutAction">
+			<result name="success" type="tiles">login</result>
+		</action>
+
+		<action name="signup"
+			class="com.LibTrack.actions.signup.SignUpLoad">
+			<result name="success" type="tiles">signup</result>
+		</action>
+
+		<action name="login" class="com.LibTrack.actions.LoginAction">
+			<result name="admin" type="redirect">adminDashboard.action</result>
+			<result name="student" type="redirect">studentDashboard.action?userId=%{user_id}
+			</result>
+			<result name="input" type="tiles">login</result>
+		</action>
+
+		<action name="studentDashboard"
+			class="com.LibTrack.actions.StudentDashboardAction">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">studentDashboard
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+		</action>
+
+		<action name="adminDashboard">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles"> adminDashboard
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+		</action>
+
+		<action name="newaccountcreated"
+			class="com.LibTrack.actions.signup.SignUpAction">
+			<result name="success" type="tiles">login</result>
+			<result name="input" type="tiles">signup</result>
+		</action>
+
+		<action name="addbookbtn"
+			class="com.LibTrack.actions.addbook.AddBookLoad">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">addBooks
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+
+		</action>
+
+		<action name="addbook"
+			class="com.LibTrack.actions.addbook.AddBookAction">
+			<result name="success" type="tiles">addBooks
+			</result>
+		</action>
+
+		<action name="editbookbtn">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">editBooks
+			</result>
+			<result name="input" type="tiles">editBooks
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+
+		</action>
+
+		<action name="viewstudentsbtn">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">viewStudents
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+
+		</action>
+
+		<action name="back">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">adminDashboard
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+
+		</action>
+
+		<action name="backToStudentDashboard"
+			class="com.LibTrack.actions.AvailBookAction">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="redirect">studentDashboard.action?userId=%{userId}
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+
+		</action>
+
+		<action name="availbooksbtn"
+			class="com.LibTrack.actions.AvailBookAction">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">availBooks
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+
+		</action>
+
+		<action name="returnbookbtn"
+			class="com.LibTrack.actions.ReturnBookAction">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">returnBooks
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+
+		</action>
+
+		<action name="trackbookbtn"
+			class="com.LibTrack.actions.TrackBookAction">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">trackBooks
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+		</action>
+
+		<action name="viewFinebtn"
+			class="com.LibTrack.actions.TrackBookAction">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">viewFines
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+		</action>
+
+		<action name="viewDefaulterbtn">
+			<interceptor-ref name="authStack" />
+			<result name="success" type="tiles">viewDefaulters
+			</result>
+			<result name="accessDenied" type="tiles">accessDenied</result>
+			<result name="login" type="tiles">login</result>
+		</action>
+
+	</package>
+
+
+	<package name="jsonpkg" namespace="" extends="json-default">
+		<action name="bookjson"
+			class="com.LibTrack.actions.json.BookJson">
+			<result type="json" />
+		</action>
+
+		<action name="loadEditBookJson"
+			class="com.LibTrack.actions.json.LoadEditBookJson">
+			<result type="json" />
+		</action>
+
+		<action name="saveBookJson"
+			class="com.LibTrack.actions.json.SaveBookJson">
+			<result type="json" />
+		</action>
+
+		<action name="deleteBookJson"
+			class="com.LibTrack.actions.json.DeleteBookJson">
+			<result type="json" />
+		</action>
+
+		<action name="loadStudentDetailsjson"
+			class="com.LibTrack.actions.json.LoadStudentDetailsJson">
+			<result type="json" />
+		</action>
+
+		<action name="availBookJson"
+			class="com.LibTrack.actions.json.AvailBookJson">
+			<result type="json" />
+			<result name="input" type="json" />
+		</action>
+
+		<action name="loadReturnBookJson"
+			class="com.LibTrack.actions.json.LoadReturnBookJson">
+			<result type="json" />
+		</action>
+
+		<action name="returnBookJson"
+			class="com.LibTrack.actions.json.ReturnBookJson">
+			<result type="json" />
+		</action>
+
+		<action name="trackBookJson"
+			class="com.LibTrack.actions.json.TrackBookJson">
+			<result type="json" />
+		</action>
+
+		<action name="defaulterJson"
+			class="com.LibTrack.actions.json.DefaulterJson">
+			<result type="json" />
+		</action>
+
+		<action name="viewFinesJson"
+			class="com.LibTrack.actions.json.ViewFinesJson">
+			<result type="json" />
+		</action>
+
+		<action name="payFineJson"
+			class="com.LibTrack.actions.json.PayFineJson">
+			<result type="json" />
+		</action>
+
+	</package>
+
+</struts>
